@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Oftalmológica Visualis</title>
+    <link href="assets/img/eye.ico" rel="icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/turnos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Estilos para la ventana */
+        .window {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
+        }
+
+        .window-content {
+            background-color: #fefefe;
+            margin: 5% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 85%; 
+            max-width: 500px; 
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .close-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--primario);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .close-btn:hover {
+            background-color: var(--secundario);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class = "logo"> <img src="assets/img/eye.ico" alt="logo"> Clínica Oftalmológica Visualis </a>
+        <nav id="navbar">
+            <a href="index.html">VOLVER ATRÁS</a>   
+        </nav>
+    </header>
+
+    <main>
+        <section class="superior">
+            <div class="content">
+                <h3>Pide un turno</h3>
+                <p>¡Bienvenido a nuestro sistema de turnos en línea! Nos preocupamos por tu salud y queremos hacer tu experiencia lo más cómoda posible. Utiliza nuestro sistema de turnos en línea para agendar tu próxima cita de manera rápida y sencilla.</p>
+            </div>
+        </section>
+
+        <section class="contenido">
+            <p>Si eres nuevo/a en nuestra clínica, te invitamos a registrarte para disfrutar de beneficios exclusivos y un proceso más rápido en futuras solicitudes de turnos.</p>
+                <div class="botones-container">
+                    <a href="#" class="btn" id="registrarseBtn" target="_blank">Registrarse</a>
+                </div>
+            
+            <p>Si ya eres un/a paciente registrado/a, simplemente selecciona esta opción para solicitar tu turno. Ingresa tus datos básicos y selecciona la fecha y hora que más te convengan. Nos esforzamos por ofrecer flexibilidad en nuestros horarios para adaptarnos a tus necesidades.</p>
+            
+                <div class="botones-container">
+                    <a href="#" class="btn" id="solicitarTurnoBtn" target="_blank">Solicitar turno</a>
+                </div>
+
+        </section>
+
+        <!-- <p id="mensajeMantenimiento" style="display: none; font-size: medium; color: red;">Página en mantenimiento. Por favor, inténtelo más tarde.</p> -->
+
+        <div id="myWindow" class="window">
+            <div class="window-content">
+                <p style="font-size: medium;">Página en mantenimiento. Por favor, inténtelo más tarde.</p>
+                <a href="#" class="close-btn">Aceptar</a>
+            </div>
+        </div>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                var registrarseBtn = document.getElementById("registrarseBtn");
+                var solicitarTurnoBtn = document.getElementById("solicitarTurnoBtn");
+                var window = document.getElementById("myWindow");
+                var closeBtn = document.querySelector(".close-btn");
+    
+                function mostrarVentana(event) {
+                    event.preventDefault();
+                    window.style.display = "block";
+                }
+    
+                registrarseBtn.addEventListener("click", mostrarVentana);
+                solicitarTurnoBtn.addEventListener("click", mostrarVentana);
+    
+                // Cuando el usuario hace clic en el boton, se cierra la ventana
+                closeBtn.onclick = function(event) {
+                    window.style.display = "none";
+                }
+    
+                // Cuando el usuario hace clic fuera de la ventana, se cierra
+                window.onclick = function(event) {
+                    if (event.target == window) {
+                        window.style.display = "none";
+                    }
+                }
+            });
+        </script>
+
+    </main>
+    <footer>
+        <section class="footer">
+            <div class="rrss">
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <div class="box-contenedor">
+                <div class="box">
+                    <h3>Dirección</h3>
+                    <p>Evergreen Terrace 742</p>
+                </div>
+                <div class="box">
+                    <h3>Email</h3>
+                    <a href="" class="email">contacto@clinicavisuals.com</a>
+                </div>
+
+                <div class="box">
+                    <h3>¡Llámanos!</h3>
+                    <p>0810 123 4567</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright &copy;2023 Diseñado por <span class="disenadora">Linda Sanchez</span></p>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
